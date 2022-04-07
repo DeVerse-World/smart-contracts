@@ -14,3 +14,8 @@ node scripts/deploy.js
 npx hardhat run scripts/deploy.js --network localhost
 npx hardhat help
 ```
+
+
+UPDATED: With yarn
+Unit tests: `yarn test`
+Start local blockchain: `yarn dev`
