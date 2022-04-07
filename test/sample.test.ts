@@ -1,5 +1,7 @@
-const { expect } = require("chai");
-const { ethers } = require("hardhat");
+// const { expect } = require("chai");
+// const { ethers } = require("hardhat");
+import { expect } from "chai"
+import { ethers } from "hardhat"
 
 // describe("Greeter", function () {
 //   it("Should return the new greeting once it's changed", async function () {
@@ -51,8 +53,8 @@ describe("NFTMarket", function() {
     await market.connect(buyerAddress).createMarketSale(nftContractAddress, 1, { value: auctionPrice})
 
     /* query for and return the unsold items */
-    items = await market.fetchMarketItems()
-    items = await Promise.all(items.map(async i => {
+    var items = await market.fetchMarketItems()
+    items = await Promise.all(items.map(async (i: any) => {
       const tokenUri = await nft.tokenURI(i.tokenId)
       let item = {
         price: i.price.toString(),
