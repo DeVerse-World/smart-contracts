@@ -61,13 +61,12 @@ export const assetFixtures = async function () {
     try {
       receipt = await waitFor(
         Asset.mint(creator, packId, hash, supply, rarity, owner, data, 0)
-          // Asset.test()
       );
     } catch (e) {
       console.log(e);
     }
 
-    console.log(receipt);
+    // console.log(receipt);
 
     const event = receipt?.events?.filter(
       (event: Event) => event.event === 'TransferSingle'

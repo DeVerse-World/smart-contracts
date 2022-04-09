@@ -11,7 +11,7 @@ describe("Asset", function() {
         const minter = users[0];
         const receiver = users[1];
         const tokenId = await mintAsset(minter.address, 11);
-        await waitFor(
+        const receipt2 = await waitFor(
             minter.Asset['safeTransferFrom(address,address,uint256,uint256,bytes)'](
                 minter.address,
                 receiver.address,
@@ -20,6 +20,7 @@ describe("Asset", function() {
                 '0x'
               )
         );
+        console.log(receipt2);
         const balanceSender = await Asset['balanceOf(address,uint256)'](
             minter.address,
             tokenId
