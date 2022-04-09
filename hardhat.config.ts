@@ -27,10 +27,40 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
  * @type import('hardhat/config').HardhatUserConfig
  */
 module.exports = {
-  solidity: "0.8.4",
+  solidity: {
+    compilers: [
+      {
+        version: '0.8.4',
+        settings: {
+          optimizer: {
+            enabled: true,
+            runs: 2000,
+          },
+        },
+      },
+      {
+        version: '0.5.9',
+        settings: {
+          optimizer: {
+            enabled: true,
+            runs: 2000,
+          },
+        },
+      },
+    ]
+  },
   network: {
     hardhat: {
       chainId: 31337
     },
+  },
+  namedAccounts: {
+    deployer: {
+      default: 1,
+    },
+    deverseAdmin: {
+      default: 2,
+    },
+    assetBouncerAdmin: 'deverseAdmin'
   }
 };

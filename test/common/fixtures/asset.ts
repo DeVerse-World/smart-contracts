@@ -31,11 +31,11 @@ export const assetFixtures = async function () {
   await waitFor(assetContractAsBouncerAdmin.setBouncer(minter, true));
   const Asset = await ethers.getContractAt('Asset', minter);
   // const predicate = await ethers.getContractAt('ERC1155_PREDICATE');
-  const TRUSTED_FORWARDER = await deployments.get('TRUSTED_FORWARDER');
-  const trustedForwarder = await ethers.getContractAt(
-    'TestMetaTxForwarder',
-    TRUSTED_FORWARDER.address
-  );
+  // const TRUSTED_FORWARDER = await deployments.get('TRUSTED_FORWARDER');
+  // const trustedForwarder = await ethers.getContractAt(
+  //   'TestMetaTxForwarder',
+  //   TRUSTED_FORWARDER.address
+  // );
 
   // Set predicate Asset
   // try {
@@ -60,7 +60,7 @@ export const assetFixtures = async function () {
     let receipt;
     try {
       receipt = await waitFor(
-        Asset.mint(creator, packId, hash, supply, rarity, owner, data)
+        Asset.mint(creator, packId, hash, supply, rarity, owner, data, 0)
       );
     } catch (e) {
       console.log(e);
@@ -108,7 +108,7 @@ export const assetFixtures = async function () {
     users,
     mintAsset,
     mintMultiple,
-    trustedForwarder,
+    // trustedForwarder,
     // predicate,
   };
 };
