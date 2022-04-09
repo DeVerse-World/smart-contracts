@@ -4,20 +4,46 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "dotenv -- cross-env NODE_OPTIONS=\"--max-old-space-size=4096 --unhandled-rejections=strict\" HARDHAT_COMPILE=true hardhat test --network localhost",
+    "compile": "hardhat compile",
+    "dev": "hardhat node",
+    "export": "node ./scripts.js export",
+    "deployV1": "hardhat run scripts/deploy.js --network localhost",
+    "deployV2": "hardhat run scripts/deployV2.js --network localhost",
+    "hardhat": "hardhat"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.5",
     "@nomiclabs/hardhat-waffle": "^2.0.2",
+    "@types/chai": "^4.3.0",
+    "@types/mocha": "^9.1.0",
+    "@types/node": "^17.0.23",
     "chai": "^4.3.6",
     "ethereum-waffle": "^3.4.0",
     "ethers": "^5.5.4",
-    "hardhat": "^2.8.4"
+    "hardhat": "^2.8.4",
+    "hardhat-contract-sizer": "^2.5.1",
+    "hardhat-deploy": "^0.11.4",
+    "mocha": "^9.2.2",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.3"
   },
   "dependencies": {
+    "@ethersproject/bignumber": "^5.6.0",
+    "@mangrovedao/hardhat-test-solidity": "0.0.16",
+    "@nomiclabs/hardhat-etherscan": "^3.0.3",
     "@openzeppelin/contracts": "^4.5.0",
-    "openzeppelin-solidity": "^2.2.0"
+    "@openzeppelin/contracts-0.8": "npm:@openzeppelin/contracts@4.5.0",
+    "@openzeppelin/contracts-upgradeable": "^4.5.2",
+    "@openzeppelin/hardhat-upgrades": "^1.17.0",
+    "@remix-project/remixd": "^0.5.7",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.0.0",
+    "dotenv-cli": "^5.1.0",
+    "hardhat-gas-reporter": "^1.0.8",
+    "openzeppelin-solidity": "^2.2.0",
+    "solidity-coverage": "^0.7.20"
   }
 }
