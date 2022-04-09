@@ -71,12 +71,12 @@ contract ERC1155ERC721 is SuperOperators, ERC1155, ERC721 {
         address admin,
         address bouncerAdmin
     ) public {
-        require(!_init, "ALREADY_INITIALISED");
-        _init = true;
-        _metaTransactionContracts[metaTransactionContract] = true;
-        _admin = admin;
-        _bouncerAdmin = bouncerAdmin;
-        emit MetaTransactionProcessor(metaTransactionContract, true);
+        // require(!_init, "ALREADY_INITIALISED");
+        // _init = true;
+        // _metaTransactionContracts[metaTransactionContract] = true;
+        // _admin = admin;
+        // _bouncerAdmin = bouncerAdmin;
+        // emit MetaTransactionProcessor(metaTransactionContract, true);
     }
 
     event BouncerAdminChanged(address oldBouncerAdmin, address newBouncerAdmin);
@@ -160,7 +160,8 @@ contract ERC1155ERC721 is SuperOperators, ERC1155, ERC721 {
         uint8 xxx
     ) external returns (uint256 id) {
         emit DebugEvent();
-        console.log("XYC");
+        console.log("XYC\n");
+        console.log("ABC/n");
         require(hash != 0, "hash is zero");
         require(_bouncers[msg.sender], "only bouncer allowed to mint");
         require(owner != address(0), "destination is zero address");
@@ -964,13 +965,13 @@ contract ERC1155ERC721 is SuperOperators, ERC1155, ERC721 {
     }
 
     function wasEverMinted(uint256 id) public view returns(bool) {
-        if ((id & IS_NFT) > 0) {
-            return _owners[id] != 0;
-        } else {
-            return
-                ((id & PACK_INDEX) < ((id & PACK_NUM_FT_TYPES) / PACK_NUM_FT_TYPES_OFFSET_MULTIPLIER)) &&
-                _metadataHash[id & URI_ID] != 0;
-        }
+        // if ((id & IS_NFT) > 0) {
+        //     return _owners[id] != 0;
+        // } else {
+        //     return
+        //         ((id & PACK_INDEX) < ((id & PACK_NUM_FT_TYPES) / PACK_NUM_FT_TYPES_OFFSET_MULTIPLIER)) &&
+        //         _metadataHash[id & URI_ID] != 0;
+        // }
     }
 
     /// @notice check whether a packId/numFT tupple has been used

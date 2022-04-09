@@ -10,14 +10,14 @@ describe("Asset", function() {
         const {Asset, users, mintAsset} = await setupAsset();
         const tokenId = await mintAsset(users[1].address, 11);
         console.log("HERE");
-        await waitFor(
-            users[0].Asset['safeTransferFrom(address,address,uint256,uint256,bytes)'](
-                users[0].address,
-                users[0].address,
-                tokenId,
-                10,
-                '0x'
-              )
-        )
+        // await waitFor(
+        //     users[0].Asset['safeTransferFrom(address,address,uint256,uint256,bytes)'](
+        //         users[0].address,
+        //         users[0].address,
+        //         tokenId,
+        //         10,
+        //         '0x'
+        //       )
+        // )
     })
 })

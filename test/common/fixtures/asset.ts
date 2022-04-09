@@ -24,18 +24,16 @@ export const assetFixtures = async function () {
 
   const {assetBouncerAdmin} = await getNamedAccounts();
 
-  const assetContractAsBouncerAdmin = await ethers.getContractAt(
-    'Asset',
-    assetBouncerAdmin
-  );
-  await waitFor(assetContractAsBouncerAdmin.setBouncer(minter, true));
-  const Asset = await ethers.getContractAt('Asset', minter);
-  // const predicate = await ethers.getContractAt('ERC1155_PREDICATE');
-  // const TRUSTED_FORWARDER = await deployments.get('TRUSTED_FORWARDER');
-  // const trustedForwarder = await ethers.getContractAt(
-  //   'TestMetaTxForwarder',
-  //   TRUSTED_FORWARDER.address
+  // const assetContractAsBouncerAdmin = await ethers.getContractAt(
+  //   'Asset',
+  //   assetBouncerAdmin
   // );
+  // await waitFor(assetContractAsBouncerAdmin.setBouncer(minter, true));
+  const Asset = await ethers.getContractAt('Asset', minter);
+
+  // const AssetContract = await ethers.getContractFactory("Asset")
+  // const Asset = await AssetContract.deploy()
+  // await Asset.deployed()
 
   // Set predicate Asset
   // try {
