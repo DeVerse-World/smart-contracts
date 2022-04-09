@@ -8,16 +8,28 @@ const setupAsset = withSnapshot(['Asset'], assetFixtures);
 describe("Asset", function() {
     it('user create erc721', async function() {
         const {Asset, users, mintAsset} = await setupAsset();
-        const tokenId = await mintAsset(users[1].address, 11);
-        console.log("HERE");
-        // await waitFor(
-        //     users[0].Asset['safeTransferFrom(address,address,uint256,uint256,bytes)'](
-        //         users[0].address,
-        //         users[0].address,
-        //         tokenId,
-        //         10,
-        //         '0x'
-        //       )
-        // )
+        const minter = users[0];
+        const receiver = users[1];
+        const tokenId = await mintAsset(minter.address, 11);
+        await waitFor(
+            minter.Asset['safeTransferFrom(address,address,uint256,uint256,bytes)'](
+                minter.address,
+                receiver.address,
+                tokenId,
+                10,
+                '0x'
+              )
+        );
+        const balanceSender = await Asset['balanceOf(address,uint256)'](
+            minter.address,
+            tokenId
+        );
+        const balanceReceiver = await Asset['balanceOf(address,uint256)'](
+            receiver.address,
+            tokenId
+        );
+        expect(balanceSender).to.be.equal(1);
+        expect(balanceReceiver).to.be.equal(10);
+        console.log("HERE3");
     })
 })

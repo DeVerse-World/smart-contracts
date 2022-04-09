@@ -159,11 +159,11 @@ contract ERC1155ERC721 is SuperOperators, ERC1155, ERC721 {
         bytes calldata data,
         uint8 xxx
     ) external returns (uint256 id) {
-        emit DebugEvent();
-        console.log("XYC\n");
-        console.log("ABC/n");
+        // emit DebugEvent();
+        // console.log("XYC\n");
+        // console.log("ABC/n");
         require(hash != 0, "hash is zero");
-        require(_bouncers[msg.sender], "only bouncer allowed to mint");
+        // require(_bouncers[msg.sender], "only bouncer allowed to mint");
         require(owner != address(0), "destination is zero address");
         id = generateTokenId(creator, supply, packId, supply == 1 ? 0 : 1, 0);
         _mint(
@@ -465,10 +465,11 @@ contract ERC1155ERC721 is SuperOperators, ERC1155, ERC721 {
         if (id & IS_NFT > 0) {
             require(_ownerOf(id) == from, "not owner");
         }
-        bool metaTx = _transferFrom(from, to, id, value);
+        // bool metaTx = _transferFrom(from, to, id, value);
         require(
             _checkERC1155AndCallSafeTransfer(
-                metaTx ? from : msg.sender,
+                // metaTx ? from : msg.sender,
+                msg.sender,
                 from,
                 to,
                 id,
@@ -637,6 +638,7 @@ contract ERC1155ERC721 is SuperOperators, ERC1155, ERC721 {
             }
         }
         (uint256 bin, uint256 index) = id.getTokenBinIndex();
+        console.log(bin, index);
         return _packedTokenBalance[owner][bin].getValueInBin(index);
     }
 
@@ -877,10 +879,11 @@ contract ERC1155ERC721 is SuperOperators, ERC1155, ERC721 {
         bytes memory data
     ) public {
         require(_ownerOf(id) == from, "not owner");
-        bool metaTx = _transferFrom(from, to, id, 1);
+        // bool metaTx = _transferFrom(from, to, id, 1);
         require(
             _checkERC1155AndCallSafeTransfer(
-                metaTx ? from : msg.sender,
+                // metaTx ? from : msg.sender,
+                msg.sender,
                 from,
                 to,
                 id,

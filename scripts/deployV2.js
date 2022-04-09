@@ -17,7 +17,7 @@ async function main() {
   const AssetContract = await hre.ethers.getContractFactory("Asset");
   const Asset = await AssetContract.deploy();
   await Asset.deployed();
-  console.log("Asset deployed to:", nftMarket.address);
+  console.log("Asset deployed to:", Asset.address);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
