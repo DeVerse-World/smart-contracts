@@ -29,11 +29,13 @@ export const assetFixtures = async function () {
   //   assetBouncerAdmin
   // );
   // await waitFor(assetContractAsBouncerAdmin.setBouncer(minter, true));
-  const Asset = await ethers.getContractAt('Asset', minter);
 
-  // const AssetContract = await ethers.getContractFactory("Asset")
-  // const Asset = await AssetContract.deploy()
-  // await Asset.deployed()
+  // const Asset = await ethers.getContractAt('Asset', minter);
+
+  // TODO: A bit strange, needs to call deployed here for the function to execute correctly
+  const AssetContract = await ethers.getContractFactory("Asset")
+  const Asset = await AssetContract.deploy()
+  await Asset.deployed()
 
   // Set predicate Asset
   // try {
@@ -59,10 +61,13 @@ export const assetFixtures = async function () {
     try {
       receipt = await waitFor(
         Asset.mint(creator, packId, hash, supply, rarity, owner, data, 0)
+          // Asset.test()
       );
     } catch (e) {
       console.log(e);
     }
+
+    console.log(receipt);
 
     const event = receipt?.events?.filter(
       (event: Event) => event.event === 'TransferSingle'

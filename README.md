@@ -23,3 +23,8 @@ Start local blockchain: `yarn dev`
 https://remix-ide.readthedocs.io/en/latest/remixd.html
 remixd -s /Users/hieuletrung/repos/side_projects/deverse/smart-contracts -u https://remix.ethereum.org
 npx hardhat run scripts/deployV2.js --network localhost
+
+yarn dev
+yarn compile
+yarn deployV2
+yarn test
