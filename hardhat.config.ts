@@ -51,7 +51,12 @@ module.exports = {
   },
   network: {
     hardhat: {
-      chainId: 31337
+      chainId: 31337,
+      blockGasLimit: 0x1fffffffffffff,
+      allowUnlimitedContractSize: true,
+      throwOnTransactionFailures: true,
+      throwOnCallFailures: true,
+      gas: 12000000,
     },
   },
   namedAccounts: {
