@@ -1,5 +1,14 @@
 import { task } from "hardhat/config";
 import '@nomiclabs/hardhat-waffle'
+import 'hardhat-deploy'
+import 'dotenv/config';
+import 'hardhat-deploy';
+import '@nomiclabs/hardhat-ethers'; // aliased to hardhat-deploy-ethers
+import 'hardhat-gas-reporter';
+import '@openzeppelin/hardhat-upgrades';
+import 'solidity-coverage';
+import 'hardhat-contract-sizer';
+import '@nomiclabs/hardhat-etherscan';
 
 // This is a sample Hardhat task. To learn how to create your own go to
 // https://hardhat.org/guides/create-task.html

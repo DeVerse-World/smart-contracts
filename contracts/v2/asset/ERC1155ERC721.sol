@@ -45,11 +45,16 @@ contract ERC1155ERC721 is SuperOperators, ERC1155, ERC721 {
         address indexed to
     );
 
+    // (owner address -> num of NFTs)
     mapping(address => uint256) private _numNFTPerAddress; // erc721
+    
+    // (token id -> owner addres)
     mapping(uint256 => uint256) private _owners; // erc721
     mapping(address => mapping(uint256 => uint256)) private _packedTokenBalance; // erc1155
     mapping(address => mapping(address => bool)) private _operatorsForAll; // erc721 and erc1155
     mapping(uint256 => address) private _erc721operators; // erc721
+
+    // (uriId -> ipfs folder hash)
     mapping(uint256 => bytes32) private _metadataHash; // erc721 and erc1155
     mapping(uint256 => bytes) private _rarityPacks; // rarity configuration per packs (2 bits per Asset)
     mapping(uint256 => uint32) private _nextCollectionIndex; // extraction
