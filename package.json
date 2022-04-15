@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "dotenv -- cross-env NODE_OPTIONS=\"--max-old-space-size=4096 --unhandled-rejections=strict\" HARDHAT_COMPILE=true hardhat test --network localhost",
+    "test": "dotenv -- cross-env NODE_OPTIONS=\"--max-old-space-size=4096 --unhandled-rejections=strict\" HARDHAT_COMPILE=true hardhat test",
+    "test-localhost": "dotenv -- cross-env NODE_OPTIONS=\"--max-old-space-size=4096 --unhandled-rejections=strict\" HARDHAT_COMPILE=true hardhat test --network localhost",
     "compile": "hardhat compile",
     "dev": "hardhat node",
     "export": "node ./scripts.js export",
