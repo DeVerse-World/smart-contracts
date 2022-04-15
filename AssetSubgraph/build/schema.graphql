@@ -1,0 +1,14 @@
+type All @entity {
+  id: ID! # "all"
+
+  numAssets: BigInt!
+}
+
+type AssetToken @entity {
+  id: ID! # tokenId
+
+  supply: BigInt!
+  # numOwners: BigInt! # TODO
+  isNFT: Boolean
+}
+
