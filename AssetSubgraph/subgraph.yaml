@@ -2,12 +2,13 @@ specVersion: 0.0.2
 schema:
   file: ./schema.graphql
 dataSources:
-  - kind: ethereum
+  - kind: ethereum/contract
     name: Asset
-    network: matic
+    network: mainnet
     source:
-      address: "0x5fbdb2315678afecb367f032d93f642f64180aa3"
+      address: "0x4a679253410272dd5232b3ff7cf5dbb88f295319"
       abi: Asset
+      startBlock: 39
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5

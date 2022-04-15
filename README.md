@@ -32,15 +32,56 @@ https://github.com/thesandboxgame/sandbox-stats-subgraph/blob/master/package.jso
 https://dev.to/edge-and-node/building-graphql-apis-on-ethereum-4poa
 https://ethereum.org/en/developers/tutorials/the-graph-fixing-web3-data-querying/
 https://thegraph.academy/developers/local-development/
+https://learning.postman.com/docs/sending-requests/supported-api-frameworks/graphql/
+https://medium.com/blockrocket/dapp-development-with-a-local-subgraph-ganache-setup-566a4d4cbb
+https://github.com/zestymarket/zesty-graph
 
-Go to graph-node/docker
-Change address in docker-compose.yaml to chain node address
-docker-compose up
+## Instructions 
 
+### Start chain node and deploy contracts
+ganache-cli -h 0.0.0.0
+yarn deployV2-ganache
+or
+yarn dev
+yarn deployV2
+
+Update contract address in asset.ts & subgraph.yaml
+
+((( One of in initial set up
 graph init --from-contract 0x5fbdb2315678afecb367f032d93f642f64180aa3 --network localhost --abi artifacts/contracts/v2/Asset.sol/Asset.json --contract-name Asset --index-events
 Change entities in schema.graphql
 cd AssetSubgraph
-graph codegen
 Update subgraph.yaml with entities name
 Update mapping.ts for event handlers
+)))
+
+## Restart graph nodes & deploy subgraph
+A common “Gotcha” — If you were to restart your local blockchain, your node’s DB would then become out of sync with the current state of your chain and you
+therefore would need to tear down your DB and start again.
+
+Optional: Go to graph-node/docker
+Change address in docker-compose.yaml to chain node address
+
+docker-compose down -v;
+
+if [ -d "data" ]
+then
+echo "Found old data for the graph node - deleting it";
+we need to sudo this to remove system locked files
+sudo rm -rf data/;
+fi
+
+docker-compose up;
+
+update contract address in subgraph-yaml
+graph codegen
 graph build
+graph remove --node http://127.0.0.1:8020 deverse/AssetSubgraph
+graph create --node http://127.0.0.1:8020 deverse/AssetSubgraph
+graph deploy deverse/AssetSubgraph --ipfs http://localhost:5001 --node http://127.0.0.1:8020
+http://127.0.0.1:8000/subgraphs/name/deverse/AssetSubgraph
+
+### Run mint transactions
+
+yarn test-localhost # to mock mint
+yarn test-ganache

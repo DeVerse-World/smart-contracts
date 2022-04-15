@@ -24,6 +24,7 @@ let ZERO = BigInt.fromI32(0);
 let ONE = BigInt.fromI32(1);
 
 export function handleTransferSingle(event: TransferSingleEvent): void {
+  console.log("HERE");
   let all = All.load('all')
   if (all == null) {
     all = new All('all');

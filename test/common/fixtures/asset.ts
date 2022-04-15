@@ -33,9 +33,15 @@ export const assetFixtures = async function () {
   // const Asset = await ethers.getContractAt('Asset', minter);
 
   // TODO: A bit strange, needs to call deployed here for the function to execute correctly
-  const AssetContract = await ethers.getContractFactory("Asset")
-  const Asset = await AssetContract.deploy()
-  await Asset.deployed()
+  // const AssetContract = await ethers.getContractFactory("Asset")
+  // const Asset = await AssetContract.deploy()
+  // await Asset.deployed()
+
+  // TODO: TEmp here for e2e test graphql
+  const AssetContract = await ethers.getContractFactory("Asset");
+  const Asset = await AssetContract.attach(
+      "0x4a679253410272dd5232b3ff7cf5dbb88f295319" // The deployed contract address
+  );
 
   // Set predicate Asset
   // try {
@@ -51,7 +57,8 @@ export const assetFixtures = async function () {
   async function mintAsset(to: string, value: number, hash = ipfsHashString) {
     // Asset to be minted
     const creator = to;
-    const packId = ++id;
+    // const packId = ++id;
+    const packId = 2;
     const supply = value;
     const rarity = 0;
     const owner = to;
