@@ -4,6 +4,7 @@ import 'hardhat-deploy'
 import 'dotenv/config';
 import 'hardhat-deploy';
 import '@nomiclabs/hardhat-ethers'; // aliased to hardhat-deploy-ethers
+import '@nomiclabs/hardhat-ganache';
 import 'hardhat-gas-reporter';
 import '@openzeppelin/hardhat-upgrades';
 import 'solidity-coverage';

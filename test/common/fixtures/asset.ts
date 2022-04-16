@@ -33,9 +33,15 @@ export const assetFixtures = async function () {
   // const Asset = await ethers.getContractAt('Asset', minter);
 
   // TODO: A bit strange, needs to call deployed here for the function to execute correctly
-  const AssetContract = await ethers.getContractFactory("Asset")
-  const Asset = await AssetContract.deploy()
-  await Asset.deployed()
+  // const AssetContract = await ethers.getContractFactory("Asset")
+  // const Asset = await AssetContract.deploy()
+  // await Asset.deployed()
+
+  // TODO: TEmp here for e2e test graphql
+  const AssetContract = await ethers.getContractFactory("Asset");
+  const Asset = await AssetContract.attach(
+      "0x5fbdb2315678afecb367f032d93f642f64180aa3" // The deployed contract address
+  );
 
   // Set predicate Asset
   // try {
@@ -45,13 +51,22 @@ export const assetFixtures = async function () {
   // }
 
   let id = 0;
+  // const ipfsHashString =
+  //   '0x78b9f42c22c3c8b260b781578da3151e8200c741c6b7437bafaff5a9df9b403e';
+  // const ipfsHashString =
+  // '0x01551220a1d68395a66fdf971bcdc0b99de67dafb9d1900090fbf4690be3a907553b37c2'
   const ipfsHashString =
-    '0x78b9f42c22c3c8b260b781578da3151e8200c741c6b7437bafaff5a9df9b403e';
+      '0xe9abac953212119e5c9496d8afd3862e2116421c26fdf42b2b5f0b65348a48d5';
+
+  // const ipfsHashString =
+  //     '0x516d54513657506733613754416d7157766d6432685438534e3742316463567643547a665244317778744b596d58'
+
 
   async function mintAsset(to: string, value: number, hash = ipfsHashString) {
     // Asset to be minted
     const creator = to;
-    const packId = ++id;
+    // const packId = ++id;
+    const packId = 1;
     const supply = value;
     const rarity = 0;
     const owner = to;

@@ -522,6 +522,15 @@
     "@ethersproject/properties" "^5.6.0"
     "@ethersproject/strings" "^5.6.0"
 
+"@mangrovedao/hardhat-test-solidity@0.0.16":
+  version "0.0.16"
+  resolved "https://registry.yarnpkg.com/@mangrovedao/hardhat-test-solidity/-/hardhat-test-solidity-0.0.16.tgz#d3c10eeb2af1b5031622b39b218f07fd2c314162"
+  integrity sha512-xTKhRuPrOlOVHTocadETZaKA13N3byFGlagzd0dVvWVdcNS9uijuq9BMzDtU+hLnS/qzeAQAPC9dJZJcKmi24Q==
+  dependencies:
+    chai "^4.2.0"
+    debug "^4.3.2"
+    mocha "^7.1.2"
+
 "@metamask/eth-sig-util@^4.0.0":
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@metamask/eth-sig-util/-/eth-sig-util-4.0.0.tgz#11553ba06de0d1352332c1bde28c8edd00e0dcf6"
@@ -581,6 +590,15 @@
     fs-extra "^7.0.1"
     semver "^6.3.0"
     undici "^4.14.1"
+
+"@nomiclabs/hardhat-ganache@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@nomiclabs/hardhat-ganache/-/hardhat-ganache-2.0.1.tgz#d4974dc379cef1892904378de00e12709c0719aa"
+  integrity sha512-Q3D8iTtsvQVkJd1EzhhYYvXAFY8fF/JEUt6l6jW7tduhFDRCKvyoSMCw+lH/3nBOHsBolr80pF76NHZ2mYCMeQ==
+  dependencies:
+    debug "^4.1.1"
+    ganache-core "^2.7.0"
+    ts-interface-checker "^0.1.9"
 
 "@nomiclabs/hardhat-waffle@^2.0.2":
   version "2.0.3"
@@ -2381,7 +2399,7 @@ cbor@^8.0.0:
   dependencies:
     nofilter "^3.1.0"
 
-chai@^4.3.6:
+chai@^4.2.0, chai@^4.3.6:
   version "4.3.6"
   resolved "https://registry.yarnpkg.com/chai/-/chai-4.3.6.tgz#ffe4ba2d9fa9d6680cc0b370adae709ec9011e9c"
   integrity sha512-bbcp3YfHCUzMOvKqsztczerVgBKSsEijCySNlHHbX3VG1nskvqjz5Rfso1gGwD6w6oOV3eI60pKuMOV5MV7p3Q==
@@ -4337,7 +4355,7 @@ functional-red-black-tree@^1.0.1, functional-red-black-tree@~1.0.1:
   resolved "https://registry.yarnpkg.com/functional-red-black-tree/-/functional-red-black-tree-1.0.1.tgz#1b0ab3bd553b2a0d6399d29c0e3ea0b252078327"
   integrity sha1-GwqzvVU7Kg1jmdKcDj6gslIHgyc=
 
-ganache-core@^2.13.2:
+ganache-core@^2.13.2, ganache-core@^2.7.0:
   version "2.13.2"
   resolved "https://registry.yarnpkg.com/ganache-core/-/ganache-core-2.13.2.tgz#27e6fc5417c10e6e76e2e646671869d7665814a3"
   integrity sha512-tIF5cR+ANQz0+3pHWxHjIwHqFXcVo0Mb+kcsNhglNFALcYo49aQpnS9dqHartqPfMFjiHh/qFoD3mYK0d/qGgw==
@@ -6298,7 +6316,7 @@ mnemonist@^0.38.0:
   dependencies:
     obliterator "^2.0.0"
 
-mocha@^7.1.1:
+mocha@^7.1.1, mocha@^7.1.2:
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/mocha/-/mocha-7.2.0.tgz#01cc227b00d875ab1eed03a75106689cfed5a604"
   integrity sha512-O9CIypScywTVpNaRrCAgoUnJgozpIofjKUYmJhiCIJMiuYnLI6otcb1/kpW9/n/tJODHGZ7i8aLQoDVsMtOKQQ==
@@ -8598,6 +8616,11 @@ ts-generator@^0.1.1:
     prettier "^2.1.2"
     resolve "^1.8.1"
     ts-essentials "^1.0.0"
+
+ts-interface-checker@^0.1.9:
+  version "0.1.13"
+  resolved "https://registry.yarnpkg.com/ts-interface-checker/-/ts-interface-checker-0.1.13.tgz#784fd3d679722bc103b1b4b8030bcddb5db2a699"
+  integrity sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==
 
 ts-node@^10.7.0:
   version "10.7.0"

@@ -16,6 +16,7 @@ contract ERC1155ERC721 is SuperOperators, ERC1155, ERC721 {
     using AddressUtils for address;
     using ObjectLib32 for ObjectLib32.Operations;
     using ObjectLib32 for uint256;
+    uint40 private _packIds = 0;
 
     bytes4 private constant ERC1155_IS_RECEIVER = 0x4e2312e0;
     bytes4 private constant ERC1155_RECEIVED = 0xf23a6e61;
@@ -53,7 +54,8 @@ contract ERC1155ERC721 is SuperOperators, ERC1155, ERC721 {
     mapping(address => mapping(uint256 => uint256)) private _packedTokenBalance; // erc1155
     mapping(address => mapping(address => bool)) private _operatorsForAll; // erc721 and erc1155
     mapping(uint256 => address) private _erc721operators; // erc721
-    mapping(uint256 => bytes32) private _metadataHash; // erc721 and erc1155
+    mapping(uint256 => bytes32) public _metadataHash; // erc721 and erc1155
+//    mapping(uint256 => string) public _metadataTokenUri; // erc721 and erc1155
     mapping(uint256 => bytes) private _rarityPacks; // rarity configuration per packs (2 bits per Asset)
     mapping(uint256 => uint32) private _nextCollectionIndex; // extraction
 
@@ -153,6 +155,7 @@ contract ERC1155ERC721 is SuperOperators, ERC1155, ERC721 {
         address creator,
         uint40 packId,
         bytes32 hash,
+//        string tokenUri,
         uint256 supply,
         uint8 rarity,
         address owner,
@@ -164,10 +167,12 @@ contract ERC1155ERC721 is SuperOperators, ERC1155, ERC721 {
         // console.log("ABC/n");
         require(hash != 0, "hash is zero");
         // require(_bouncers[msg.sender], "only bouncer allowed to mint");
+        uint40 newPackId = ++_packIds;
         require(owner != address(0), "destination is zero address");
-        id = generateTokenId(creator, supply, packId, supply == 1 ? 0 : 1, 0);
+        id = generateTokenId(creator, supply, newPackId, supply == 1 ? 0 : 1, 0);
         _mint(
             hash,
+//            tokenUri,
             supply,
             rarity,
             msg.sender,
@@ -197,6 +202,7 @@ contract ERC1155ERC721 is SuperOperators, ERC1155, ERC721 {
 
     function _mint(
         bytes32 hash,
+//        string tokenUri,
         uint256 supply,
         uint8 rarity,
         address operator,
@@ -209,6 +215,7 @@ contract ERC1155ERC721 is SuperOperators, ERC1155, ERC721 {
         if (!extraction) {
             require(uint256(_metadataHash[uriId]) == 0, "id already used");
             _metadataHash[uriId] = hash;
+//            _metadataTokenUri[uriId] = tokenUri;
             require(rarity < 4, "rarity >= 4");
             bytes memory pack = new bytes(1);
             pack[0] = bytes1(rarity * 64);
@@ -968,13 +975,13 @@ contract ERC1155ERC721 is SuperOperators, ERC1155, ERC721 {
     }
 
     function wasEverMinted(uint256 id) public view returns(bool) {
-        // if ((id & IS_NFT) > 0) {
-        //     return _owners[id] != 0;
-        // } else {
-        //     return
-        //         ((id & PACK_INDEX) < ((id & PACK_NUM_FT_TYPES) / PACK_NUM_FT_TYPES_OFFSET_MULTIPLIER)) &&
-        //         _metadataHash[id & URI_ID] != 0;
-        // }
+         if ((id & IS_NFT) > 0) {
+             return _owners[id] != 0;
+         } else {
+             return
+                 ((id & PACK_INDEX) < ((id & PACK_NUM_FT_TYPES) / PACK_NUM_FT_TYPES_OFFSET_MULTIPLIER)) &&
+                 _metadataHash[id & URI_ID] != 0;
+         }
     }
 
     /// @notice check whether a packId/numFT tupple has been used
@@ -997,6 +1004,11 @@ contract ERC1155ERC721 is SuperOperators, ERC1155, ERC721 {
         return toFullURI(_metadataHash[id & URI_ID], id);
     }
 
+    function uri2(uint256 id) public view returns (string memory) {
+        require(wasEverMinted(id), "token was never minted"); // prevent returning invalid uri
+        return string(hash2base32(_metadataHash[id & URI_ID]));
+    }
+
     /// @notice A distinct Uniform Resource Identifier (URI) for a given asset.
     /// @param id token to get the uri of.
     /// @return URI string
@@ -1004,6 +1016,11 @@ contract ERC1155ERC721 is SuperOperators, ERC1155, ERC721 {
         require(_ownerOf(id) != address(0), "NFT does not exist");
         return toFullURI(_metadataHash[id & URI_ID], id);
     }
+
+//    function tokenURIRaw(uint256 id) public view returns (string memory) {
+//        require(_ownerOf(id) != address(0), "NFT does not exist");
+//        return _metadataTokenUri[id & URI_ID]
+//    }
 
     bytes32 private constant base32Alphabet = 0x6162636465666768696A6B6C6D6E6F707172737475767778797A323334353637;
     // solium-disable-next-line security/no-assign-params
@@ -1243,95 +1260,95 @@ contract ERC1155ERC721 is SuperOperators, ERC1155, ERC721 {
             );
         }
     }
-
-    /// @notice Upgrades an NFT with new metadata and rarity.
-    /// @param from address which own the NFT to be upgraded.
-    /// @param id the NFT that will be burnt to be upgraded.
-    /// @param packId unqiue packId for the token.
-    /// @param hash hash of an IPFS cidv1 folder that contains the metadata of the new token type in the file 0.json.
-    /// @param newRarity rarity power of the new NFT.
-    /// @param to address which will receive the NFT.
-    /// @param data bytes to be transmitted as part of the minted token.
-    /// @return the id of the newly minted NFT.
-    function updateERC721(
-        address from,
-        uint256 id,
-        uint40 packId,
-        bytes32 hash,
-        uint8 newRarity,
-        address to,
-        bytes calldata data
-    ) external returns(uint256) {
-        require(hash != 0, "hash is zero");
-        require(
-            _bouncers[msg.sender],
-            "only bouncer allowed to mint via update"
-        );
-        require(to != address(0), "destination is zero address");
-        require(from != address(0), "from is zero address");
-
-        _burnERC721(msg.sender, from, id);
-
-        uint256 newId = generateTokenId(from, 1, packId, 0, 0);
-        _mint(hash, 1, newRarity, msg.sender, to, newId, data, false);
-        emit AssetUpdate(id, newId);
-        return newId;
-    }
-
-    /// @notice Extracts an EIP-721 NFT from an EIP-1155 token.
-    /// @param id the token type to extract from.
-    /// @param to address which will receive the token.
-    /// @return the id of the newly minted NFT.
-    function extractERC721(uint256 id, address to)
-        external
-        returns (uint256 newId)
-    {
-        return _extractERC721From(msg.sender, msg.sender, id, to);
-    }
-
-    /// @notice Extracts an EIP-721 NFT from an EIP-1155 token.
-    /// @param sender address which own the token to be extracted.
-    /// @param id the token type to extract from.
-    /// @param to address which will receive the token.
-    /// @return the id of the newly minted NFT.
-    function extractERC721From(address sender, uint256 id, address to)
-        external
-        returns (uint256 newId)
-    {
-        bool metaTx = _metaTransactionContracts[msg.sender];
-        require(
-            msg.sender == sender ||
-                metaTx ||
-                _superOperators[msg.sender] ||
-                _operatorsForAll[sender][msg.sender],
-            "require meta approval"
-        );
-        return _extractERC721From(metaTx ? sender : msg.sender, sender, id, to);
-    }
-
-    function _extractERC721From(address operator, address sender, uint256 id, address to)
-        internal
-        returns (uint256 newId)
-    {
-        require(to != address(0), "destination is zero address");
-        require(id & IS_NFT == 0, "Not an ERC1155 Token");
-        uint32 tokenCollectionIndex = _nextCollectionIndex[id];
-        newId = id +
-            IS_NFT +
-            (tokenCollectionIndex) *
-            2**NFT_INDEX_OFFSET;
-        _nextCollectionIndex[id] = tokenCollectionIndex + 1;
-        _burnERC1155(operator, sender, id, 1);
-        _mint(
-            _metadataHash[id & URI_ID],
-            1,
-            0,
-            operator,
-            to,
-            newId,
-            "",
-            true
-        );
-        emit Extraction(id, newId);
-    }
+//
+//    /// @notice Upgrades an NFT with new metadata and rarity.
+//    /// @param from address which own the NFT to be upgraded.
+//    /// @param id the NFT that will be burnt to be upgraded.
+//    /// @param packId unqiue packId for the token.
+//    /// @param hash hash of an IPFS cidv1 folder that contains the metadata of the new token type in the file 0.json.
+//    /// @param newRarity rarity power of the new NFT.
+//    /// @param to address which will receive the NFT.
+//    /// @param data bytes to be transmitted as part of the minted token.
+//    /// @return the id of the newly minted NFT.
+//    function updateERC721(
+//        address from,
+//        uint256 id,
+//        uint40 packId,
+//        bytes32 hash,
+//        uint8 newRarity,
+//        address to,
+//        bytes calldata data
+//    ) external returns(uint256) {
+//        require(hash != 0, "hash is zero");
+//        require(
+//            _bouncers[msg.sender],
+//            "only bouncer allowed to mint via update"
+//        );
+//        require(to != address(0), "destination is zero address");
+//        require(from != address(0), "from is zero address");
+//
+//        _burnERC721(msg.sender, from, id);
+//
+//        uint256 newId = generateTokenId(from, 1, packId, 0, 0);
+//        _mint(hash, 1, newRarity, msg.sender, to, newId, data, false);
+//        emit AssetUpdate(id, newId);
+//        return newId;
+//    }
+//
+//    /// @notice Extracts an EIP-721 NFT from an EIP-1155 token.
+//    /// @param id the token type to extract from.
+//    /// @param to address which will receive the token.
+//    /// @return the id of the newly minted NFT.
+//    function extractERC721(uint256 id, address to)
+//        external
+//        returns (uint256 newId)
+//    {
+//        return _extractERC721From(msg.sender, msg.sender, id, to);
+//    }
+//
+//    /// @notice Extracts an EIP-721 NFT from an EIP-1155 token.
+//    /// @param sender address which own the token to be extracted.
+//    /// @param id the token type to extract from.
+//    /// @param to address which will receive the token.
+//    /// @return the id of the newly minted NFT.
+//    function extractERC721From(address sender, uint256 id, address to)
+//        external
+//        returns (uint256 newId)
+//    {
+//        bool metaTx = _metaTransactionContracts[msg.sender];
+//        require(
+//            msg.sender == sender ||
+//                metaTx ||
+//                _superOperators[msg.sender] ||
+//                _operatorsForAll[sender][msg.sender],
+//            "require meta approval"
+//        );
+//        return _extractERC721From(metaTx ? sender : msg.sender, sender, id, to);
+//    }
+//
+//    function _extractERC721From(address operator, address sender, uint256 id, address to)
+//        internal
+//        returns (uint256 newId)
+//    {
+//        require(to != address(0), "destination is zero address");
+//        require(id & IS_NFT == 0, "Not an ERC1155 Token");
+//        uint32 tokenCollectionIndex = _nextCollectionIndex[id];
+//        newId = id +
+//            IS_NFT +
+//            (tokenCollectionIndex) *
+//            2**NFT_INDEX_OFFSET;
+//        _nextCollectionIndex[id] = tokenCollectionIndex + 1;
+//        _burnERC1155(operator, sender, id, 1);
+//        _mint(
+//            _metadataHash[id & URI_ID],
+//            1,
+//            0,
+//            operator,
+//            to,
+//            newId,
+//            "",
+//            true
+//        );
+//        emit Extraction(id, newId);
+//    }
 }
