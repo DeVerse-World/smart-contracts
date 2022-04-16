@@ -20,23 +20,23 @@ import {
   All, AssetToken
 } from "../generated/schema"
 
-let ZERO = BigInt.fromI32(0);
-let ONE = BigInt.fromI32(1);
+// let ZERO = BigInt.fromI32(0);
+// let ONE = BigInt.fromI32(1);
 
 export function handleTransferSingle(event: TransferSingleEvent): void {
   console.log("HERE");
   let all = All.load('all')
   if (all == null) {
     all = new All('all');
-    all.numAssets = ZERO;
+    all.numAssets = 0;
   }
 
   let assetToken = AssetToken.load(event.params.id.toString())
   if (assetToken == null) {
     assetToken = new AssetToken(event.params.id.toString())
-    assetToken.supply = event.params.value
-    assetToken.isNFT = (assetToken.supply.toI32() == 1)
-    all.numAssets = all.numAssets.plus(ONE)
+    assetToken.supply = event.params.value.toI32()
+    assetToken.isNFT = (assetToken.supply == 1)
+    all.numAssets = all.numAssets + 1
   }
   assetToken.save()
   all.save()

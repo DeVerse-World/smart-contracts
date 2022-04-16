@@ -1,13 +1,13 @@
 type All @entity {
   id: ID! # "all"
 
-  numAssets: BigInt!
+  numAssets: Int!
 }
 
 type AssetToken @entity {
   id: ID! # tokenId
 
-  supply: BigInt!
+  supply: Int!
   # numOwners: BigInt! # TODO
   isNFT: Boolean
 }

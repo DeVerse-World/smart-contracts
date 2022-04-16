@@ -16,7 +16,7 @@ export class All extends Entity {
     super();
     this.set("id", Value.fromString(id));
 
-    this.set("numAssets", Value.fromBigInt(BigInt.zero()));
+    this.set("numAssets", Value.fromI32(0));
   }
 
   save(): void {
@@ -44,13 +44,13 @@ export class All extends Entity {
     this.set("id", Value.fromString(value));
   }
 
-  get numAssets(): BigInt {
+  get numAssets(): i32 {
     let value = this.get("numAssets");
-    return value!.toBigInt();
+    return value!.toI32();
   }
 
-  set numAssets(value: BigInt) {
-    this.set("numAssets", Value.fromBigInt(value));
+  set numAssets(value: i32) {
+    this.set("numAssets", Value.fromI32(value));
   }
 }
 
@@ -59,7 +59,7 @@ export class AssetToken extends Entity {
     super();
     this.set("id", Value.fromString(id));
 
-    this.set("supply", Value.fromBigInt(BigInt.zero()));
+    this.set("supply", Value.fromI32(0));
   }
 
   save(): void {
@@ -87,13 +87,13 @@ export class AssetToken extends Entity {
     this.set("id", Value.fromString(value));
   }
 
-  get supply(): BigInt {
+  get supply(): i32 {
     let value = this.get("supply");
-    return value!.toBigInt();
+    return value!.toI32();
   }
 
-  set supply(value: BigInt) {
-    this.set("supply", Value.fromBigInt(value));
+  set supply(value: i32) {
+    this.set("supply", Value.fromI32(value));
   }
 
   get isNFT(): boolean {

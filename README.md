@@ -4,6 +4,12 @@ This project demonstrates a basic Hardhat use case. It comes with a sample contr
 
 Try running some of the following tasks:
 
+## Instructions for basic flow:
+yarn dev (start the node)
+yarn compile (compile ABI files)
+yarn deployV2 (deploy the contract, update this address in config.js file in landing-page repo)
+
+## Instructions for full-flow 
 ```shell
 npx hardhat accounts
 npx hardhat compile
@@ -45,7 +51,7 @@ or
 yarn dev
 yarn deployV2
 
-Update contract address in asset.ts & subgraph.yaml
+Update contract address in asset.ts & subgraph.yaml & landing-page/config.js
 
 ((( One of in initial set up
 graph init --from-contract 0x5fbdb2315678afecb367f032d93f642f64180aa3 --network localhost --abi artifacts/contracts/v2/Asset.sol/Asset.json --contract-name Asset --index-events
@@ -67,7 +73,7 @@ docker-compose down -v;
 if [ -d "data" ]
 then
 echo "Found old data for the graph node - deleting it";
-we need to sudo this to remove system locked files
+we need to sudo this to remove system locked files  
 sudo rm -rf data/;
 fi
 
@@ -79,6 +85,7 @@ graph build
 graph remove --node http://127.0.0.1:8020 deverse/AssetSubgraph
 graph create --node http://127.0.0.1:8020 deverse/AssetSubgraph
 graph deploy deverse/AssetSubgraph --ipfs http://localhost:5001 --node http://127.0.0.1:8020
+graph test --node http://127.0.0.1:8020 deverse/AssetSubgraph
 http://127.0.0.1:8000/subgraphs/name/deverse/AssetSubgraph
 
 ### Run mint transactions
