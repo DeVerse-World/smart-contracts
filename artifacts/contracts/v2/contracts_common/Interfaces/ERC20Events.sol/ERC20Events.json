@@ -1,0 +1,55 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "ERC20Events",
+  "sourceName": "contracts/v2/contracts_common/Interfaces/ERC20Events.sol",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "from",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "value",
+          "type": "uint256"
+        }
+      ],
+      "name": "Transfer",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "spender",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "value",
+          "type": "uint256"
+        }
+      ],
+      "name": "Approval",
+      "type": "event"
+    }
+  ],
+  "bytecode": "0x6080604052348015600f57600080fd5b50603e80601d6000396000f3fe6080604052600080fdfea265627a7a723058201fd6da0f30684ef33e2349ad501fb9358927326fa262719c60678aaed411845364736f6c63430005090032",
+  "deployedBytecode": "0x6080604052600080fdfea265627a7a723058201fd6da0f30684ef33e2349ad501fb9358927326fa262719c60678aaed411845364736f6c63430005090032",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

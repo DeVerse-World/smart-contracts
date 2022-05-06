@@ -1,0 +1,370 @@
+{
+  "id": "2f3e0912ca4057092e2e5f76b05376d3",
+  "_format": "hh-sol-build-info-1",
+  "solcVersion": "0.5.9",
+  "solcLongVersion": "0.5.9+commit.c68bc34e",
+  "input": {
+    "language": "Solidity",
+    "sources": {
+      "contracts/v2/contracts_common/BaseWithStorage/ProxyImplementation.sol": {
+        "content": "pragma solidity ^0.5.2;\n\ncontract ProxyImplementation {\n    mapping(string => bool) _initialised;\n\n    modifier phase(string memory phaseName) {\n        if (!_initialised[phaseName]) {\n            _initialised[phaseName] = true;\n            _;\n        }\n    }\n}\n"
+      }
+    },
+    "settings": {
+      "optimizer": {
+        "enabled": true,
+        "runs": 2000
+      },
+      "outputSelection": {
+        "*": {
+          "*": [
+            "abi",
+            "evm.bytecode",
+            "evm.deployedBytecode",
+            "evm.methodIdentifiers",
+            "metadata",
+            "devdoc",
+            "userdoc",
+            "storageLayout",
+            "evm.gasEstimates"
+          ],
+          "": [
+            "ast"
+          ]
+        }
+      },
+      "metadata": {
+        "useLiteralContent": true
+      }
+    }
+  },
+  "output": {
+    "contracts": {
+      "contracts/v2/contracts_common/BaseWithStorage/ProxyImplementation.sol": {
+        "ProxyImplementation": {
+          "abi": [],
+          "devdoc": {
+            "methods": {}
+          },
+          "evm": {
+            "bytecode": {
+              "linkReferences": {},
+              "object": "6080604052348015600f57600080fd5b50603e80601d6000396000f3fe6080604052600080fdfea265627a7a7230582017ef8b9f90cfd9db87ef38b516ee53fafbd12f7f0ad5139e274aa4a0e19286ce64736f6c63430005090032",
+              "opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH1 0xF JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x3E DUP1 PUSH1 0x1D PUSH1 0x0 CODECOPY PUSH1 0x0 RETURN INVALID PUSH1 0x80 PUSH1 0x40 MSTORE PUSH1 0x0 DUP1 REVERT INVALID LOG2 PUSH6 0x627A7A723058 KECCAK256 OR 0xef DUP12 SWAP16 SWAP1 0xcf 0xd9 0xdb DUP8 0xef CODESIZE 0xb5 AND 0xee MSTORE8 STATICCALL 0xfb 0xd1 0x2f PUSH32 0xAD5139E274AA4A0E19286CE64736F6C63430005090032000000000000000000 ",
+              "sourceMap": "25:236:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;25:236:0;;;;;;;"
+            },
+            "deployedBytecode": {
+              "linkReferences": {},
+              "object": "6080604052600080fdfea265627a7a7230582017ef8b9f90cfd9db87ef38b516ee53fafbd12f7f0ad5139e274aa4a0e19286ce64736f6c63430005090032",
+              "opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE PUSH1 0x0 DUP1 REVERT INVALID LOG2 PUSH6 0x627A7A723058 KECCAK256 OR 0xef DUP12 SWAP16 SWAP1 0xcf 0xd9 0xdb DUP8 0xef CODESIZE 0xb5 AND 0xee MSTORE8 STATICCALL 0xfb 0xd1 0x2f PUSH32 0xAD5139E274AA4A0E19286CE64736F6C63430005090032000000000000000000 ",
+              "sourceMap": "25:236:0:-;;;;;"
+            },
+            "gasEstimates": {
+              "creation": {
+                "codeDepositCost": "12400",
+                "executionCost": "66",
+                "totalCost": "12466"
+              }
+            },
+            "methodIdentifiers": {}
+          },
+          "metadata": "{\"compiler\":{\"version\":\"0.5.9+commit.c68bc34e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"contracts/v2/contracts_common/BaseWithStorage/ProxyImplementation.sol\":\"ProxyImplementation\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"metadata\":{\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":2000},\"remappings\":[]},\"sources\":{\"contracts/v2/contracts_common/BaseWithStorage/ProxyImplementation.sol\":{\"content\":\"pragma solidity ^0.5.2;\\n\\ncontract ProxyImplementation {\\n    mapping(string => bool) _initialised;\\n\\n    modifier phase(string memory phaseName) {\\n        if (!_initialised[phaseName]) {\\n            _initialised[phaseName] = true;\\n            _;\\n        }\\n    }\\n}\\n\",\"keccak256\":\"0x9bfcb76a8aa264d0b33fb8b24c9401198a8e42ec8230ad6cc60ee628e3734fa4\"}},\"version\":1}",
+          "userdoc": {
+            "methods": {}
+          }
+        }
+      }
+    },
+    "sources": {
+      "contracts/v2/contracts_common/BaseWithStorage/ProxyImplementation.sol": {
+        "ast": {
+          "absolutePath": "contracts/v2/contracts_common/BaseWithStorage/ProxyImplementation.sol",
+          "exportedSymbols": {
+            "ProxyImplementation": [
+              24
+            ]
+          },
+          "id": 25,
+          "nodeType": "SourceUnit",
+          "nodes": [
+            {
+              "id": 1,
+              "literals": [
+                "solidity",
+                "^",
+                "0.5",
+                ".2"
+              ],
+              "nodeType": "PragmaDirective",
+              "src": "0:23:0"
+            },
+            {
+              "baseContracts": [],
+              "contractDependencies": [],
+              "contractKind": "contract",
+              "documentation": null,
+              "fullyImplemented": true,
+              "id": 24,
+              "linearizedBaseContracts": [
+                24
+              ],
+              "name": "ProxyImplementation",
+              "nodeType": "ContractDefinition",
+              "nodes": [
+                {
+                  "constant": false,
+                  "id": 5,
+                  "name": "_initialised",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 24,
+                  "src": "60:36:0",
+                  "stateVariable": true,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_mapping$_t_string_memory_$_t_bool_$",
+                    "typeString": "mapping(string => bool)"
+                  },
+                  "typeName": {
+                    "id": 4,
+                    "keyType": {
+                      "id": 2,
+                      "name": "string",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "68:6:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_storage_ptr",
+                        "typeString": "string"
+                      }
+                    },
+                    "nodeType": "Mapping",
+                    "src": "60:23:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_mapping$_t_string_memory_$_t_bool_$",
+                      "typeString": "mapping(string => bool)"
+                    },
+                    "valueType": {
+                      "id": 3,
+                      "name": "bool",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "78:4:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "body": {
+                    "id": 22,
+                    "nodeType": "Block",
+                    "src": "143:116:0",
+                    "statements": [
+                      {
+                        "condition": {
+                          "argumentTypes": null,
+                          "id": 12,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "UnaryOperation",
+                          "operator": "!",
+                          "prefix": true,
+                          "src": "157:24:0",
+                          "subExpression": {
+                            "argumentTypes": null,
+                            "baseExpression": {
+                              "argumentTypes": null,
+                              "id": 9,
+                              "name": "_initialised",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 5,
+                              "src": "158:12:0",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_mapping$_t_string_memory_$_t_bool_$",
+                                "typeString": "mapping(string memory => bool)"
+                              }
+                            },
+                            "id": 11,
+                            "indexExpression": {
+                              "argumentTypes": null,
+                              "id": 10,
+                              "name": "phaseName",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 7,
+                              "src": "171:9:0",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_string_memory_ptr",
+                                "typeString": "string memory"
+                              }
+                            },
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "nodeType": "IndexAccess",
+                            "src": "158:23:0",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_bool",
+                              "typeString": "bool"
+                            }
+                          },
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          }
+                        },
+                        "falseBody": null,
+                        "id": 21,
+                        "nodeType": "IfStatement",
+                        "src": "153:100:0",
+                        "trueBody": {
+                          "id": 20,
+                          "nodeType": "Block",
+                          "src": "183:70:0",
+                          "statements": [
+                            {
+                              "expression": {
+                                "argumentTypes": null,
+                                "id": 17,
+                                "isConstant": false,
+                                "isLValue": false,
+                                "isPure": false,
+                                "lValueRequested": false,
+                                "leftHandSide": {
+                                  "argumentTypes": null,
+                                  "baseExpression": {
+                                    "argumentTypes": null,
+                                    "id": 13,
+                                    "name": "_initialised",
+                                    "nodeType": "Identifier",
+                                    "overloadedDeclarations": [],
+                                    "referencedDeclaration": 5,
+                                    "src": "197:12:0",
+                                    "typeDescriptions": {
+                                      "typeIdentifier": "t_mapping$_t_string_memory_$_t_bool_$",
+                                      "typeString": "mapping(string memory => bool)"
+                                    }
+                                  },
+                                  "id": 15,
+                                  "indexExpression": {
+                                    "argumentTypes": null,
+                                    "id": 14,
+                                    "name": "phaseName",
+                                    "nodeType": "Identifier",
+                                    "overloadedDeclarations": [],
+                                    "referencedDeclaration": 7,
+                                    "src": "210:9:0",
+                                    "typeDescriptions": {
+                                      "typeIdentifier": "t_string_memory_ptr",
+                                      "typeString": "string memory"
+                                    }
+                                  },
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": true,
+                                  "nodeType": "IndexAccess",
+                                  "src": "197:23:0",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_bool",
+                                    "typeString": "bool"
+                                  }
+                                },
+                                "nodeType": "Assignment",
+                                "operator": "=",
+                                "rightHandSide": {
+                                  "argumentTypes": null,
+                                  "hexValue": "74727565",
+                                  "id": 16,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "kind": "bool",
+                                  "lValueRequested": false,
+                                  "nodeType": "Literal",
+                                  "src": "223:4:0",
+                                  "subdenomination": null,
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_bool",
+                                    "typeString": "bool"
+                                  },
+                                  "value": "true"
+                                },
+                                "src": "197:30:0",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_bool",
+                                  "typeString": "bool"
+                                }
+                              },
+                              "id": 18,
+                              "nodeType": "ExpressionStatement",
+                              "src": "197:30:0"
+                            },
+                            {
+                              "id": 19,
+                              "nodeType": "PlaceholderStatement",
+                              "src": "241:1:0"
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  },
+                  "documentation": null,
+                  "id": 23,
+                  "name": "phase",
+                  "nodeType": "ModifierDefinition",
+                  "parameters": {
+                    "id": 8,
+                    "nodeType": "ParameterList",
+                    "parameters": [
+                      {
+                        "constant": false,
+                        "id": 7,
+                        "name": "phaseName",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 23,
+                        "src": "118:23:0",
+                        "stateVariable": false,
+                        "storageLocation": "memory",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string"
+                        },
+                        "typeName": {
+                          "id": 6,
+                          "name": "string",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "118:6:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_string_storage_ptr",
+                            "typeString": "string"
+                          }
+                        },
+                        "value": null,
+                        "visibility": "internal"
+                      }
+                    ],
+                    "src": "117:25:0"
+                  },
+                  "src": "103:156:0",
+                  "visibility": "internal"
+                }
+              ],
+              "scope": 25,
+              "src": "25:236:0"
+            }
+          ],
+          "src": "0:262:0"
+        },
+        "id": 0
+      }
+    }
+  }
+}

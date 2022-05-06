@@ -1,0 +1,168 @@
+{
+  "id": "ab75a7479d34497477fc96b4bda116be",
+  "_format": "hh-sol-build-info-1",
+  "solcVersion": "0.5.9",
+  "solcLongVersion": "0.5.9+commit.c68bc34e",
+  "input": {
+    "language": "Solidity",
+    "sources": {
+      "contracts/v2/contracts_common/Interfaces/ERC1654Constants.sol": {
+        "content": "pragma solidity ^0.5.2;\n\ncontract ERC1654Constants {\n    bytes4 internal constant ERC1654_MAGICVALUE = 0x1626ba7e;\n}\n"
+      }
+    },
+    "settings": {
+      "optimizer": {
+        "enabled": true,
+        "runs": 2000
+      },
+      "outputSelection": {
+        "*": {
+          "*": [
+            "abi",
+            "evm.bytecode",
+            "evm.deployedBytecode",
+            "evm.methodIdentifiers",
+            "metadata",
+            "devdoc",
+            "userdoc",
+            "storageLayout",
+            "evm.gasEstimates"
+          ],
+          "": [
+            "ast"
+          ]
+        }
+      },
+      "metadata": {
+        "useLiteralContent": true
+      }
+    }
+  },
+  "output": {
+    "contracts": {
+      "contracts/v2/contracts_common/Interfaces/ERC1654Constants.sol": {
+        "ERC1654Constants": {
+          "abi": [],
+          "devdoc": {
+            "methods": {}
+          },
+          "evm": {
+            "bytecode": {
+              "linkReferences": {},
+              "object": "6080604052348015600f57600080fd5b50603e80601d6000396000f3fe6080604052600080fdfea265627a7a7230582068bac6b4b37cab44d86301f4bea8a5461d76c4b07bc4d4af4ad0ea3a7384d88464736f6c63430005090032",
+              "opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH1 0xF JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x3E DUP1 PUSH1 0x1D PUSH1 0x0 CODECOPY PUSH1 0x0 RETURN INVALID PUSH1 0x80 PUSH1 0x40 MSTORE PUSH1 0x0 DUP1 REVERT INVALID LOG2 PUSH6 0x627A7A723058 KECCAK256 PUSH9 0xBAC6B4B37CAB44D863 ADD DELEGATECALL 0xbe 0xa8 0xa5 0x46 SAR PUSH23 0xC4B07BC4D4AF4AD0EA3A7384D88464736F6C6343000509 STOP ORIGIN ",
+              "sourceMap": "25:91:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;25:91:0;;;;;;;"
+            },
+            "deployedBytecode": {
+              "linkReferences": {},
+              "object": "6080604052600080fdfea265627a7a7230582068bac6b4b37cab44d86301f4bea8a5461d76c4b07bc4d4af4ad0ea3a7384d88464736f6c63430005090032",
+              "opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE PUSH1 0x0 DUP1 REVERT INVALID LOG2 PUSH6 0x627A7A723058 KECCAK256 PUSH9 0xBAC6B4B37CAB44D863 ADD DELEGATECALL 0xbe 0xa8 0xa5 0x46 SAR PUSH23 0xC4B07BC4D4AF4AD0EA3A7384D88464736F6C6343000509 STOP ORIGIN ",
+              "sourceMap": "25:91:0:-;;;;;"
+            },
+            "gasEstimates": {
+              "creation": {
+                "codeDepositCost": "12400",
+                "executionCost": "66",
+                "totalCost": "12466"
+              }
+            },
+            "methodIdentifiers": {}
+          },
+          "metadata": "{\"compiler\":{\"version\":\"0.5.9+commit.c68bc34e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"contracts/v2/contracts_common/Interfaces/ERC1654Constants.sol\":\"ERC1654Constants\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"metadata\":{\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":2000},\"remappings\":[]},\"sources\":{\"contracts/v2/contracts_common/Interfaces/ERC1654Constants.sol\":{\"content\":\"pragma solidity ^0.5.2;\\n\\ncontract ERC1654Constants {\\n    bytes4 internal constant ERC1654_MAGICVALUE = 0x1626ba7e;\\n}\\n\",\"keccak256\":\"0xc89fe81450f551045b148248ec1bb82156b20918e7dcb88b96e41ddcb62108a5\"}},\"version\":1}",
+          "userdoc": {
+            "methods": {}
+          }
+        }
+      }
+    },
+    "sources": {
+      "contracts/v2/contracts_common/Interfaces/ERC1654Constants.sol": {
+        "ast": {
+          "absolutePath": "contracts/v2/contracts_common/Interfaces/ERC1654Constants.sol",
+          "exportedSymbols": {
+            "ERC1654Constants": [
+              5
+            ]
+          },
+          "id": 6,
+          "nodeType": "SourceUnit",
+          "nodes": [
+            {
+              "id": 1,
+              "literals": [
+                "solidity",
+                "^",
+                "0.5",
+                ".2"
+              ],
+              "nodeType": "PragmaDirective",
+              "src": "0:23:0"
+            },
+            {
+              "baseContracts": [],
+              "contractDependencies": [],
+              "contractKind": "contract",
+              "documentation": null,
+              "fullyImplemented": true,
+              "id": 5,
+              "linearizedBaseContracts": [
+                5
+              ],
+              "name": "ERC1654Constants",
+              "nodeType": "ContractDefinition",
+              "nodes": [
+                {
+                  "constant": true,
+                  "id": 4,
+                  "name": "ERC1654_MAGICVALUE",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5,
+                  "src": "57:56:0",
+                  "stateVariable": true,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes4",
+                    "typeString": "bytes4"
+                  },
+                  "typeName": {
+                    "id": 2,
+                    "name": "bytes4",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "57:6:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes4",
+                      "typeString": "bytes4"
+                    }
+                  },
+                  "value": {
+                    "argumentTypes": null,
+                    "hexValue": "30783136323662613765",
+                    "id": 3,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "kind": "number",
+                    "lValueRequested": false,
+                    "nodeType": "Literal",
+                    "src": "103:10:0",
+                    "subdenomination": null,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_rational_371636862_by_1",
+                      "typeString": "int_const 371636862"
+                    },
+                    "value": "0x1626ba7e"
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "scope": 6,
+              "src": "25:91:0"
+            }
+          ],
+          "src": "0:117:0"
+        },
+        "id": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "ERC2771Handler",
+  "sourceName": "contracts/v2/BaseWithStorage/ERC2771Handler.sol",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "forwarder",
+          "type": "address"
+        }
+      ],
+      "name": "isTrustedForwarder",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getTrustedForwarder",
+      "outputs": [
+        {
+          "name": "trustedForwarder",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x608060405234801561001057600080fd5b5061011c806100206000396000f3fe6080604052348015600f57600080fd5b506004361060325760003560e01c8063572b6c05146037578063ce1b815f14607b575b600080fd5b606760048036036020811015604b57600080fd5b503573ffffffffffffffffffffffffffffffffffffffff1660aa565b604080519115158252519081900360200190f35b608160cb565b6040805173ffffffffffffffffffffffffffffffffffffffff9092168252519081900360200190f35b60005473ffffffffffffffffffffffffffffffffffffffff90811691161490565b60005473ffffffffffffffffffffffffffffffffffffffff169056fea265627a7a7230582009ec4f38170183d0a1beb0684a707d346cb28fabd78a22de44e3fa0e7865460364736f6c63430005090032",
+  "deployedBytecode": "0x6080604052348015600f57600080fd5b506004361060325760003560e01c8063572b6c05146037578063ce1b815f14607b575b600080fd5b606760048036036020811015604b57600080fd5b503573ffffffffffffffffffffffffffffffffffffffff1660aa565b604080519115158252519081900360200190f35b608160cb565b6040805173ffffffffffffffffffffffffffffffffffffffff9092168252519081900360200190f35b60005473ffffffffffffffffffffffffffffffffffffffff90811691161490565b60005473ffffffffffffffffffffffffffffffffffffffff169056fea265627a7a7230582009ec4f38170183d0a1beb0684a707d346cb28fabd78a22de44e3fa0e7865460364736f6c63430005090032",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

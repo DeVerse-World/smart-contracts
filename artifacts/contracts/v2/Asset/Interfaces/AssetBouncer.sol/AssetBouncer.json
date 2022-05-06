@@ -1,0 +1,10 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "AssetBouncer",
+  "sourceName": "contracts/v2/Asset/Interfaces/AssetBouncer.sol",
+  "abi": [],
+  "bytecode": "0x6080604052348015600f57600080fd5b50603e80601d6000396000f3fe6080604052600080fdfea265627a7a723058200e698a07ceef4ce5b0eaacc67bad935c1c2d0039a50c9d12b2233a2e1c99b7f364736f6c63430005090032",
+  "deployedBytecode": "0x6080604052600080fdfea265627a7a723058200e698a07ceef4ce5b0eaacc67bad935c1c2d0039a50c9d12b2233a2e1c99b7f364736f6c63430005090032",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

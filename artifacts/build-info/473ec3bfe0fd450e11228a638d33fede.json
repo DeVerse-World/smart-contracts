@@ -1,0 +1,123 @@
+{
+  "id": "473ec3bfe0fd450e11228a638d33fede",
+  "_format": "hh-sol-build-info-1",
+  "solcVersion": "0.5.9",
+  "solcLongVersion": "0.5.9+commit.c68bc34e",
+  "input": {
+    "language": "Solidity",
+    "sources": {
+      "contracts/v2/Asset/Interfaces/AssetBouncer.sol": {
+        "content": "pragma solidity 0.5.9;\n\ncontract AssetBouncer {}\n"
+      }
+    },
+    "settings": {
+      "optimizer": {
+        "enabled": true,
+        "runs": 2000
+      },
+      "outputSelection": {
+        "*": {
+          "*": [
+            "abi",
+            "evm.bytecode",
+            "evm.deployedBytecode",
+            "evm.methodIdentifiers",
+            "metadata",
+            "devdoc",
+            "userdoc",
+            "storageLayout",
+            "evm.gasEstimates"
+          ],
+          "": [
+            "ast"
+          ]
+        }
+      },
+      "metadata": {
+        "useLiteralContent": true
+      }
+    }
+  },
+  "output": {
+    "contracts": {
+      "contracts/v2/Asset/Interfaces/AssetBouncer.sol": {
+        "AssetBouncer": {
+          "abi": [],
+          "devdoc": {
+            "methods": {}
+          },
+          "evm": {
+            "bytecode": {
+              "linkReferences": {},
+              "object": "6080604052348015600f57600080fd5b50603e80601d6000396000f3fe6080604052600080fdfea265627a7a723058200e698a07ceef4ce5b0eaacc67bad935c1c2d0039a50c9d12b2233a2e1c99b7f364736f6c63430005090032",
+              "opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH1 0xF JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x3E DUP1 PUSH1 0x1D PUSH1 0x0 CODECOPY PUSH1 0x0 RETURN INVALID PUSH1 0x80 PUSH1 0x40 MSTORE PUSH1 0x0 DUP1 REVERT INVALID LOG2 PUSH6 0x627A7A723058 KECCAK256 0xe PUSH10 0x8A07CEEF4CE5B0EAACC6 PUSH28 0xAD935C1C2D0039A50C9D12B2233A2E1C99B7F364736F6C6343000509 STOP ORIGIN ",
+              "sourceMap": "24:24:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;24:24:0;;;;;;;"
+            },
+            "deployedBytecode": {
+              "linkReferences": {},
+              "object": "6080604052600080fdfea265627a7a723058200e698a07ceef4ce5b0eaacc67bad935c1c2d0039a50c9d12b2233a2e1c99b7f364736f6c63430005090032",
+              "opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE PUSH1 0x0 DUP1 REVERT INVALID LOG2 PUSH6 0x627A7A723058 KECCAK256 0xe PUSH10 0x8A07CEEF4CE5B0EAACC6 PUSH28 0xAD935C1C2D0039A50C9D12B2233A2E1C99B7F364736F6C6343000509 STOP ORIGIN ",
+              "sourceMap": "24:24:0:-;;;;;"
+            },
+            "gasEstimates": {
+              "creation": {
+                "codeDepositCost": "12400",
+                "executionCost": "66",
+                "totalCost": "12466"
+              }
+            },
+            "methodIdentifiers": {}
+          },
+          "metadata": "{\"compiler\":{\"version\":\"0.5.9+commit.c68bc34e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"contracts/v2/Asset/Interfaces/AssetBouncer.sol\":\"AssetBouncer\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"metadata\":{\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":2000},\"remappings\":[]},\"sources\":{\"contracts/v2/Asset/Interfaces/AssetBouncer.sol\":{\"content\":\"pragma solidity 0.5.9;\\n\\ncontract AssetBouncer {}\\n\",\"keccak256\":\"0xc2d12ab858b15805d5768cfc02f45ffa19c24d9fd739c760fb1f2f61011ce4be\"}},\"version\":1}",
+          "userdoc": {
+            "methods": {}
+          }
+        }
+      }
+    },
+    "sources": {
+      "contracts/v2/Asset/Interfaces/AssetBouncer.sol": {
+        "ast": {
+          "absolutePath": "contracts/v2/Asset/Interfaces/AssetBouncer.sol",
+          "exportedSymbols": {
+            "AssetBouncer": [
+              2
+            ]
+          },
+          "id": 3,
+          "nodeType": "SourceUnit",
+          "nodes": [
+            {
+              "id": 1,
+              "literals": [
+                "solidity",
+                "0.5",
+                ".9"
+              ],
+              "nodeType": "PragmaDirective",
+              "src": "0:22:0"
+            },
+            {
+              "baseContracts": [],
+              "contractDependencies": [],
+              "contractKind": "contract",
+              "documentation": null,
+              "fullyImplemented": true,
+              "id": 2,
+              "linearizedBaseContracts": [
+                2
+              ],
+              "name": "AssetBouncer",
+              "nodeType": "ContractDefinition",
+              "nodes": [],
+              "scope": 3,
+              "src": "24:24:0"
+            }
+          ],
+          "src": "0:49:0"
+        },
+        "id": 0
+      }
+    }
+  }
+}

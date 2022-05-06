@@ -1,0 +1,192 @@
+{
+  "id": "d55020df45afa06412add23dc9f5fe1a",
+  "_format": "hh-sol-build-info-1",
+  "solcVersion": "0.5.9",
+  "solcLongVersion": "0.5.9+commit.c68bc34e",
+  "input": {
+    "language": "Solidity",
+    "sources": {
+      "contracts/v2/contracts_common/Interfaces/Medianizer.sol": {
+        "content": "pragma solidity ^0.5.2;\n\n\n/**\n * @title Medianizer contract\n * @dev From MakerDAO (https://etherscan.io/address/0x729D19f657BD0614b4985Cf1D82531c67569197B#code)\n */\ninterface Medianizer {\n    function read() external view returns (bytes32);\n}\n"
+      }
+    },
+    "settings": {
+      "optimizer": {
+        "enabled": true,
+        "runs": 2000
+      },
+      "outputSelection": {
+        "*": {
+          "*": [
+            "abi",
+            "evm.bytecode",
+            "evm.deployedBytecode",
+            "evm.methodIdentifiers",
+            "metadata",
+            "devdoc",
+            "userdoc",
+            "storageLayout",
+            "evm.gasEstimates"
+          ],
+          "": [
+            "ast"
+          ]
+        }
+      },
+      "metadata": {
+        "useLiteralContent": true
+      }
+    }
+  },
+  "output": {
+    "contracts": {
+      "contracts/v2/contracts_common/Interfaces/Medianizer.sol": {
+        "Medianizer": {
+          "abi": [
+            {
+              "constant": true,
+              "inputs": [],
+              "name": "read",
+              "outputs": [
+                {
+                  "name": "",
+                  "type": "bytes32"
+                }
+              ],
+              "payable": false,
+              "stateMutability": "view",
+              "type": "function"
+            }
+          ],
+          "devdoc": {
+            "details": "From MakerDAO (https://etherscan.io/address/0x729D19f657BD0614b4985Cf1D82531c67569197B#code)",
+            "methods": {},
+            "title": "Medianizer contract"
+          },
+          "evm": {
+            "bytecode": {
+              "linkReferences": {},
+              "object": "",
+              "opcodes": "",
+              "sourceMap": ""
+            },
+            "deployedBytecode": {
+              "linkReferences": {},
+              "object": "",
+              "opcodes": "",
+              "sourceMap": ""
+            },
+            "gasEstimates": null,
+            "methodIdentifiers": {
+              "read()": "57de26a4"
+            }
+          },
+          "metadata": "{\"compiler\":{\"version\":\"0.5.9+commit.c68bc34e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[],\"name\":\"read\",\"outputs\":[{\"name\":\"\",\"type\":\"bytes32\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"From MakerDAO (https://etherscan.io/address/0x729D19f657BD0614b4985Cf1D82531c67569197B#code)\",\"methods\":{},\"title\":\"Medianizer contract\"},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"contracts/v2/contracts_common/Interfaces/Medianizer.sol\":\"Medianizer\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"metadata\":{\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":2000},\"remappings\":[]},\"sources\":{\"contracts/v2/contracts_common/Interfaces/Medianizer.sol\":{\"content\":\"pragma solidity ^0.5.2;\\n\\n\\n/**\\n * @title Medianizer contract\\n * @dev From MakerDAO (https://etherscan.io/address/0x729D19f657BD0614b4985Cf1D82531c67569197B#code)\\n */\\ninterface Medianizer {\\n    function read() external view returns (bytes32);\\n}\\n\",\"keccak256\":\"0x77a6277882bc0f9482175a23dcd2cf4ec08cc7268f9e8caf71ad49c39b07c262\"}},\"version\":1}",
+          "userdoc": {
+            "methods": {}
+          }
+        }
+      }
+    },
+    "sources": {
+      "contracts/v2/contracts_common/Interfaces/Medianizer.sol": {
+        "ast": {
+          "absolutePath": "contracts/v2/contracts_common/Interfaces/Medianizer.sol",
+          "exportedSymbols": {
+            "Medianizer": [
+              7
+            ]
+          },
+          "id": 8,
+          "nodeType": "SourceUnit",
+          "nodes": [
+            {
+              "id": 1,
+              "literals": [
+                "solidity",
+                "^",
+                "0.5",
+                ".2"
+              ],
+              "nodeType": "PragmaDirective",
+              "src": "0:23:0"
+            },
+            {
+              "baseContracts": [],
+              "contractDependencies": [],
+              "contractKind": "interface",
+              "documentation": "@title Medianizer contract\n@dev From MakerDAO (https://etherscan.io/address/0x729D19f657BD0614b4985Cf1D82531c67569197B#code)",
+              "fullyImplemented": false,
+              "id": 7,
+              "linearizedBaseContracts": [
+                7
+              ],
+              "name": "Medianizer",
+              "nodeType": "ContractDefinition",
+              "nodes": [
+                {
+                  "body": null,
+                  "documentation": null,
+                  "id": 6,
+                  "implemented": false,
+                  "kind": "function",
+                  "modifiers": [],
+                  "name": "read",
+                  "nodeType": "FunctionDefinition",
+                  "parameters": {
+                    "id": 2,
+                    "nodeType": "ParameterList",
+                    "parameters": [],
+                    "src": "205:2:0"
+                  },
+                  "returnParameters": {
+                    "id": 5,
+                    "nodeType": "ParameterList",
+                    "parameters": [
+                      {
+                        "constant": false,
+                        "id": 4,
+                        "name": "",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 6,
+                        "src": "231:7:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        },
+                        "typeName": {
+                          "id": 3,
+                          "name": "bytes32",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "231:7:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bytes32",
+                            "typeString": "bytes32"
+                          }
+                        },
+                        "value": null,
+                        "visibility": "internal"
+                      }
+                    ],
+                    "src": "230:9:0"
+                  },
+                  "scope": 7,
+                  "src": "192:48:0",
+                  "stateMutability": "view",
+                  "superFunction": null,
+                  "visibility": "external"
+                }
+              ],
+              "scope": 8,
+              "src": "165:77:0"
+            }
+          ],
+          "src": "0:243:0"
+        },
+        "id": 0
+      }
+    }
+  }
+}

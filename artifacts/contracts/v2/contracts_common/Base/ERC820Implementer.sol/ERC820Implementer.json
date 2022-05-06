@@ -1,0 +1,10 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "ERC820Implementer",
+  "sourceName": "contracts/v2/contracts_common/Base/ERC820Implementer.sol",
+  "abi": [],
+  "bytecode": "0x6080604052348015600f57600080fd5b50603e80601d6000396000f3fe6080604052600080fdfea265627a7a7230582039b916dec98356c51fe7fdcfd118037c7f4b4fe081520b4bf070961c9b6613e564736f6c63430005090032",
+  "deployedBytecode": "0x6080604052600080fdfea265627a7a7230582039b916dec98356c51fe7fdcfd118037c7f4b4fe081520b4bf070961c9b6613e564736f6c63430005090032",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

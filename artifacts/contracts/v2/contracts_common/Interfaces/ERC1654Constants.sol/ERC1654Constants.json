@@ -1,0 +1,10 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "ERC1654Constants",
+  "sourceName": "contracts/v2/contracts_common/Interfaces/ERC1654Constants.sol",
+  "abi": [],
+  "bytecode": "0x6080604052348015600f57600080fd5b50603e80601d6000396000f3fe6080604052600080fdfea265627a7a7230582068bac6b4b37cab44d86301f4bea8a5461d76c4b07bc4d4af4ad0ea3a7384d88464736f6c63430005090032",
+  "deployedBytecode": "0x6080604052600080fdfea265627a7a7230582068bac6b4b37cab44d86301f4bea8a5461d76c4b07bc4d4af4ad0ea3a7384d88464736f6c63430005090032",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}
