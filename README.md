@@ -4,10 +4,17 @@ This project demonstrates a basic Hardhat use case. It comes with a sample contr
 
 Try running some of the following tasks:
 
-## Instructions for basic flow:
+## Instructions for basic flow (local deploy)
 yarn dev (start the node)
 yarn compile (compile ABI files)
-yarn deployV2 (deploy the contract, update this address in config.js file in landing-page repo)
+yarn deployV2-hardhat (deploy the contract, update this address in config.js file in landing-page repo)
+
+## Instructions for basic flow (Rinkeby deploy)
+Ref: https://dev.to/emanuelferreira/how-to-deploy-smart-contract-to-rinkeby-testnet-using-infura-and-hardhat-5ddj
+Infura: https://infura.io/dashboard/ethereum/9a17d0ac33844bf186f3e705da66b308/settings
+Alchemy (more reliable): https://dashboard.alchemyapi.io/apps/pvpkwmw2u467ce9d
+yarn compile (compile ABI files)
+yarn deployV2-rinkeby
 
 ## Instructions for full-flow 
 ```shell

@@ -10,8 +10,10 @@
     "compile": "hardhat compile",
     "dev": "hardhat node",
     "export": "node ./scripts.js export",
-    "deployV1": "hardhat run scripts/deploy.js --network localhost",
-    "deployV2": "hardhat run scripts/deployV2.js --network localhost",
+    "deployV1-hardhat": "hardhat run scripts/deploy.js --network localhost",
+    "deployV2-hardhat": "hardhat run scripts/deployV2.js --network localhost",
+    "deployV1-rinkeby": "hardhat run scripts/deploy.js --network rinkeby",
+    "deployV2-rinkeby": "hardhat run scripts/deployV2.js --network rinkeby",
     "deployV2-ganache": "hardhat run scripts/deployV2.js --network ganache",
     "hardhat": "hardhat"
   },
