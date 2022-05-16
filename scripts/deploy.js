@@ -14,8 +14,13 @@ async function main() {
   // await hre.run('compile');
 
   // We get the contract to deploy
+  // const [deployer] = await ethers.getSigners();
+  // console.log("Deploying contracts with the accountv1:", deployer.address);
+  // console.log("Account balancev1:", (await deployer.getBalance()).toString());
   const NFTMarket = await hre.ethers.getContractFactory("NFTMarket");
+  console.log("A");
   const nftMarket = await NFTMarket.deploy();
+  console.log("B");
   await nftMarket.deployed();
   console.log("nftMarket deployed to:", nftMarket.address);
 

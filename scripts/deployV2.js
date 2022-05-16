@@ -14,8 +14,13 @@ async function main() {
   // await hre.run('compile');
 
   // We get the contract to deploy
+  const [deployer] = await ethers.getSigners();
+  console.log("Deploying contracts with the account:", deployer.address);
+  console.log("Account balance:", (await deployer.getBalance()).toString());
   const AssetContract = await hre.ethers.getContractFactory("Asset");
+  console.log("A");
   const Asset = await AssetContract.deploy();
+  console.log("B");
   await Asset.deployed();
   console.log("Asset deployed to:", Asset.address);
 }

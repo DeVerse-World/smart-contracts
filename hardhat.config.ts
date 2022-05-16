@@ -50,7 +50,7 @@ module.exports = {
       },
     ]
   },
-  network: {
+  networks: {
     hardhat: {
       chainId: 31337,
       blockGasLimit: 0x1fffffffffffff,
@@ -58,6 +58,10 @@ module.exports = {
       throwOnTransactionFailures: true,
       throwOnCallFailures: true,
       gas: 12000000,
+    },
+    rinkeby: {
+      url: "https://eth-rinkeby.alchemyapi.io/v2/dUWuuh70k7YsZXH4aoBoqkk8b_eB8Vyd",
+      accounts: ["969eb3cc29d65ca0042402973e21ec6da1cd1df44f90c2038b2c15f52be5e9f0"],
     },
   },
   namedAccounts: {
