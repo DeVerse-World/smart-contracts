@@ -15,6 +15,7 @@ Infura: https://infura.io/dashboard/ethereum/9a17d0ac33844bf186f3e705da66b308/se
 Alchemy (more reliable): https://dashboard.alchemyapi.io/apps/pvpkwmw2u467ce9d
 yarn compile (compile ABI files)
 yarn deployV2-rinkeby
+yarn batchTransfer-rinkeby
 
 ## Instructions for full-flow 
 ```shell

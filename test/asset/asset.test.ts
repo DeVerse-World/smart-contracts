@@ -31,6 +31,5 @@ describe("Asset", function() {
         );
         expect(balanceSender).to.be.equal(1);
         expect(balanceReceiver).to.be.equal(10);
-        console.log("HERE3");
     })
 })

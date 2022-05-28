@@ -906,7 +906,7 @@ contract ERC1155ERC721 is SuperOperators, ERC1155, ERC721 {
     /// @notice A descriptive name for the collection of tokens in this contract.
     /// @return the name of the tokens.
     function name() external pure returns (string memory _name) {
-        return "Sandbox's ASSETs";
+        return "DeVerse's ASSET";
     }
 
     /// @notice An abbreviated name for the collection of tokens in this contract.
