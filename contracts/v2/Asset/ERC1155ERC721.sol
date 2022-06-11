@@ -999,23 +999,33 @@ contract ERC1155ERC721 is SuperOperators, ERC1155, ERC721 {
     /// @notice A distinct Uniform Resource Identifier (URI) for a given token.
     /// @param id token to get the uri of.
     /// @return URI string
+//    function uri(uint256 id) public view returns (string memory) {
+//        require(wasEverMinted(id), "token was never minted"); // prevent returning invalid uri
+//        return toFullURI(_metadataHash[id & URI_ID], id);
+//    }
+//
+//    function uri2(uint256 id) public view returns (string memory) {
+//        require(wasEverMinted(id), "token was never minted"); // prevent returning invalid uri
+//        return string(hash2base32(_metadataHash[id & URI_ID]));
+//    }
+
     function uri(uint256 id) public view returns (string memory) {
         require(wasEverMinted(id), "token was never minted"); // prevent returning invalid uri
-        return toFullURI(_metadataHash[id & URI_ID], id);
+        return "https://bafybei" + string(hash2base32(_metadataHash[id & URI_ID])) + ".ipfs.infura-ipfs.io";
     }
 
-    function uri2(uint256 id) public view returns (string memory) {
+    function tokenURI(uint256 id) public view returns (string memory) {
         require(wasEverMinted(id), "token was never minted"); // prevent returning invalid uri
-        return string(hash2base32(_metadataHash[id & URI_ID]));
+        return "https://bafybei" + string(hash2base32(_metadataHash[id & URI_ID])) + ".ipfs.infura-ipfs.io";
     }
 
     /// @notice A distinct Uniform Resource Identifier (URI) for a given asset.
     /// @param id token to get the uri of.
     /// @return URI string
-    function tokenURI(uint256 id) public view returns (string memory) {
-        require(_ownerOf(id) != address(0), "NFT does not exist");
-        return toFullURI(_metadataHash[id & URI_ID], id);
-    }
+//    function tokenURI(uint256 id) public view returns (string memory) {
+//        require(_ownerOf(id) != address(0), "NFT does not exist");
+//        return toFullURI(_metadataHash[id & URI_ID], id);
+//    }
 
 //    function tokenURIRaw(uint256 id) public view returns (string memory) {
 //        require(_ownerOf(id) != address(0), "NFT does not exist");
