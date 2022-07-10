@@ -63,6 +63,10 @@ module.exports = {
       url: "https://eth-rinkeby.alchemyapi.io/v2/dUWuuh70k7YsZXH4aoBoqkk8b_eB8Vyd",
       accounts: ["969eb3cc29d65ca0042402973e21ec6da1cd1df44f90c2038b2c15f52be5e9f0"],
     },
+    mumbai: {
+      url: "https://polygon-mumbai.g.alchemy.com/v2/jA5_H_DQkGlOS4hChUOtyiBO3M1ckUVQ",
+      accounts: ["969eb3cc29d65ca0042402973e21ec6da1cd1df44f90c2038b2c15f52be5e9f0"],
+    },
   },
   namedAccounts: {
     deployer: {

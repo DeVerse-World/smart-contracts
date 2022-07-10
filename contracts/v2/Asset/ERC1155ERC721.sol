@@ -1007,7 +1007,7 @@ contract ERC1155ERC721 is SuperOperators, ERC1155, ERC721 {
 //
     function uri2(uint256 id) public view returns (string memory) {
         require(wasEverMinted(id), "token was never minted"); // prevent returning invalid uri
-        return string(hash2base32(_metadataHash[id & URI_ID]));
+        return toFullURI(_metadataHash[id & URI_ID], id);
     }
 
     function basePrefixTokenURI() public view returns (string memory) {
